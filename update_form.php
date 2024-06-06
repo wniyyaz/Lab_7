@@ -36,23 +36,79 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         <title>Update User</title>
 
         <style>
-
-        .form-container{
-            border: 1px solid #000;
-            padding: 20px;
-            width: 300px;
-            margin: auto;
-            margin-top: 50px;
-            text-align: left;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column; /* Ensure content stacks vertically */
         }
 
-        </style>
+        h2 {
+            text-align: center;
+            margin-bottom: 20px; /* Add margin to separate from the form */
+        }
 
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 300px; /* Adjust the width as needed */
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #483248;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="button"] {
+            background-color: #C8A2C8;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #C8A2C8;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
     </head>
 
     <body>
-      <div class="form-container">
-        <h1>Update User</h1>
+        <h2>Update User</h2>
         <form action="update.php" method="post">
             <input type="hidden" name="matric" value=<?php echo $userDetails['matric']; ?>>
             <label for="name">Name:</label>
@@ -64,10 +120,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     echo "selected" ?>>Lecturer</option>
                     <option value="student" <?php if ($userDetails['role'] == 'student')
                     echo "selected" ?>>Student</option>
-                </select><br>
+                </select><br><br>
             <input type="submit" value="Update"><a href="Q5.php">Cancel</a>
         </form>
-      </div>
         </body>
 
 </html>
